@@ -1,0 +1,276 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "ecs:DeregisterTaskDefinition",
+                "ecs:DescribeClusters",
+                "ecs:DescribeContainerInstances",
+                "ecs:DescribeServices",
+                "ecs:DescribeTaskDefinition",
+                "ecs:DescribeTasks",
+                "ecs:ListClusters",
+                "ecs:ListContainerInstances",
+                "ecs:ListServices",
+                "ecs:ListTaskDefinitionFamilies",
+                "ecs:ListTaskDefinitions",
+                "ecs:ListTasks",
+                "ecs:Poll",
+                "ecs:RegisterTaskDefinition",
+                "medialive:DescribeInput",
+                "medialive:ListInputs",
+                "medialive:ListReservations",
+                "medialive:DescribeInputSecurityGroup",
+                "medialive:DescribeReservation",
+                "medialive:ListTagsForResource",
+                "medialive:ListInputSecurityGroups",
+                "medialive:DescribeSchedule",
+                "medialive:ListOfferings",
+                "medialive:ListChannels",
+                "medialive:DescribeOffering",
+                "medialive:DescribeChannel",
+                "kinesis:Get*",
+                "kinesis:List*",
+                "kinesis:Describe*",
+                "airflow:GetEnvironment",
+                "airflow:CreateWebLoginToken",
+                "redshift-serverless:GetTableRestoreStatus",
+                "redshift-serverless:ListUsageLimits",
+                "redshift-serverless:GetEndpointAccess",
+                "redshift-serverless:ListNamespaces",
+                "redshift-serverless:GetResourcePolicy",
+                "redshift-serverless:ListWorkgroups",
+                "redshift-serverless:GetSnapshot",
+                "redshift-serverless:ListEndpointAccess",
+                "redshift-serverless:GetUsageLimit",
+                "redshift-serverless:ListSnapshots",
+                "redshift-serverless:ListRecoveryPoints",
+                "redshift-serverless:ListTableRestoreStatus",
+                "redshift-serverless:GetRecoveryPoint",
+                "redshift-serverless:ListTagsForResource",
+                "redshift-serverless:GetNamespace",
+                "redshift-serverless:GetWorkgroup",
+                "emr-serverless:GetDashboardForJobRun",
+                "emr-serverless:ListTagsForResource",
+                "emr-serverless:GetApplication",
+                "emr-serverless:GetJobRun",
+                "emr-serverless:ListApplications",
+                "emr-serverless:ListJobRuns",
+                "elasticmapreduce:DescribeStudio",
+                "elasticmapreduce:ListStudios",
+                "s3:List*",
+                "s3:getObject",
+                "elasticmapreduce:ListSteps",
+                "elasticmapreduce:ListBootstrapActions",
+                "elasticmapreduce:ListClusters",
+                "elasticmapreduce:ListInstanceFleets",
+                "elasticmapreduce:ListInstanceGroups",
+                "elasticmapreduce:ListInstances",
+                "elasticmapreduce:ListSecurityConfigurations",
+                "elasticmapreduce:ListStudioSessionMappings",
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetItem",
+                "dynamodb:Query",
+                "dynamodb:Scan"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "cloudformation:DeleteStack",
+                "s3:DeleteBucket",
+                "s3:DeleteObject"
+            ],
+            "Resource": "*",
+            "Effect": "Deny"
+        },
+        {
+            "Action": [
+                "organizations:*",
+                "cloudtrail:DeleteTrail"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Effect": "Deny"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "glue:SearchTables",
+                "athena:GetTableMetadata",
+                "athena:StartQueryExecution",
+                "athena:GetQueryResultsStream",
+                "glue:GetTables",
+                "athena:GetQueryResults",
+                "athena:GetDatabase",
+                "athena:GetDataCatalog",
+                "athena:GetNamedQuery",
+                "glue:GetDatabases",
+                "athena:ListTagsForResource",
+                "athena:ListQueryExecutions",
+                "athena:ListNamedQueries",
+                "glue:GetTable",
+                "glue:GetDatabase",
+                "athena:GetWorkGroup",
+                "athena:ListDatabases",
+                "athena:GetQueryExecution",
+                "athena:BatchGetNamedQuery",
+                "athena:ListTableMetadata",
+                "athena:BatchGetQueryExecution",
+                "athena:ListDataCatalogs",
+                "athena:ListWorkGroups",
+                "glue:GetPartitions"
+            ],
+            "Resource": [
+                "arn:aws:athena:us-west-2:501246562447:workgroup/primary",
+                "arn:aws:athena:us-west-2:501246562447:workgroup/primary/*",
+                "arn:aws:glue:us-west-2:501246562447:catalog",
+                "arn:aws:glue:us-west-2:501246562447:database/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:GetLogDelivery",
+                "logs:ListLogDeliveries",
+                "logs:DescribeResourcePolicies",
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "states:StartExecution",
+                "states:StopExecution",
+                "states:StartSyncExecution"
+            ],
+            "Resource": "arn:aws:states:us-west-2:501246562447:stateMachine:file_ingestion_framework"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:*"
+            ],
+            "Resource": "arn:aws:ecs:us-west-2:393000359662:cluster/qa-framework"
+        },
+        {
+            "Action": "redshift:GetClusterCredentials",
+            "Effect": "Allow",
+            "Resource": "arn:aws:redshift:us-west-2:501246562447:dbuser:foxcpe-prod/data_full_read_user"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Sid": "RedshiftPermissions",
+            "Effect": "Allow",
+            "Action": "redshift:GetClusterCredentials",
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowS3PutForObject",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::aws-athena-query-results-501246562447-us-west-2",
+                "arn:aws:s3:::dpe-forge-data",
+                "arn:aws:s3:::aws-athena-query-results-501246562447-us-west-2/*",
+                "arn:aws:s3:::dpe-forge-data/*",
+                "arn:aws:s3:::ds-lz-fox-adi-dev/*",
+                "arn:aws:s3:::ds-lz-fox-adi-dev"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "redshift:DescribeClusters",
+                "redshift:DescribeClusterSnapshots",
+                "redshift:DescribeClusterDbRevisions",
+                "redshift:DescribeClusterParameters",
+                "redshift:ViewQueriesInConsole"
+            ],
+            "Resource": [
+                "arn:aws:redshift:us-west-2:393000359662:cluster:foxcpe*",
+                "arn:aws:redshift:us-west-2:393000359662:snapshot:*",
+                "arn:aws:redshift:us-west-2:393000359662:db-revision:*",
+                "arn:aws:redshift:us-west-2:393000359662:parameter:*"
+            ]
+        },
+        {
+            "Sid": "ECSFullAccess",
+            "Effect": "Allow",
+            "Action": [
+                "ecs:*"
+            ],
+            "Resource": [
+                "arn:aws:ecs:us-west-2:393000359662:cluster/adi_cluster_dev",
+                "arn:aws:ecs:us-west-2:393000359662:task-definition/adi_upload*:*"
+            ]
+        },
+        {
+            "Sid": "ECRFullAccessAdi",
+            "Effect": "Allow",
+            "Action": [
+                "ecr:*"
+            ],
+            "Resource": [
+                "arn:aws:ecr:us-west-2:393000359662:repository/adi"
+            ]
+        },
+        {
+            "Sid": "SecretsManagerAccess",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:ListSecretVersionIds"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:us-west-2:393000359662:secret:adi-smp-meta-api-key-wy3Xly",
+                "arn:aws:secretsmanager:us-west-2:393000359662:secret:adi-smp-tt-keys-pgRZ6m",
+                "arn:aws:secretsmanager:us-west-2:393000359662:secret:adi-smp-yt-tokens-YCXo2q"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": "arn:aws:iam::393000359662:role/ecsTaskExecutionRole"
+        },
+        {
+            "Sid": "AllowS3FullAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::ds-lz-fox-adi-dev/*",
+                "arn:aws:s3:::ds-lz-fox-adi-dev"
+            ]
+        }
+    ]
+}

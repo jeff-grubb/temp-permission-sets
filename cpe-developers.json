@@ -1,0 +1,109 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "lambda:*",
+                "ecs:CreateService",
+                "ecs:DeleteService",
+                "ecs:DeregisterTaskDefinition",
+                "ecs:DescribeClusters",
+                "ecs:DescribeContainerInstances",
+                "ecs:DescribeServices",
+                "ecs:DescribeTaskDefinition",
+                "ecs:DescribeTasks",
+                "ecs:ListClusters",
+                "ecs:ListContainerInstances",
+                "ecs:ListServices",
+                "ecs:ListTaskDefinitionFamilies",
+                "ecs:ListTaskDefinitions",
+                "ecs:ListTasks",
+                "ecs:Poll",
+                "ecs:RegisterTaskDefinition",
+                "ecs:RunTask",
+                "ecs:StartTask",
+                "ecs:StopTask",
+                "ecs:UpdateService",
+                "ecr:CreateRepository",
+                "mediaconvert:GetPreset",
+                "mediaconvert:ListQueues",
+                "mediaconvert:ListJobs",
+                "mediaconvert:ListTagsForResource",
+                "mediaconvert:DescribeEndpoints",
+                "mediaconvert:CreateJobTemplate",
+                "mediaconvert:ListPresets",
+                "mediaconvert:DeletePreset",
+                "mediaconvert:DeleteJobTemplate",
+                "mediaconvert:CreatePreset",
+                "mediaconvert:UpdateQueue",
+                "mediaconvert:GetJobTemplate",
+                "mediaconvert:CreateQueue",
+                "mediaconvert:DisassociateCertificate",
+                "mediaconvert:GetPolicy",
+                "mediaconvert:AssociateCertificate",
+                "mediaconvert:CreateJob",
+                "mediaconvert:ListJobTemplates",
+                "medialive:DescribeInput",
+                "medialive:ListInputs",
+                "medialive:ListReservations",
+                "medialive:DescribeInputSecurityGroup",
+                "medialive:DescribeReservation",
+                "medialive:ListTagsForResource",
+                "medialive:ListInputSecurityGroups",
+                "medialive:DescribeSchedule",
+                "medialive:ListOfferings",
+                "medialive:ListChannels",
+                "medialive:DescribeOffering",
+                "medialive:DescribeChannel",
+                "medialive:StartChannel",
+                "medialive:StopChannel",
+                "s3:*",
+                "ses:*",
+                "sqs:*",
+                "sns:*",
+                "dynamodb:*",
+                "rds:*",
+                "events:*",
+                "sagemaker:*",
+                "cloudformation:*",
+                "cloudfront:*",
+                "support:*"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "cloudformation:DeleteStack",
+                "s3:DeleteBucket"
+            ],
+            "Resource": "*",
+            "Effect": "Deny"
+        },
+        {
+            "Action": [
+                "organizations:*",
+                "cloudtrail:DeleteTrail"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Effect": "Deny"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::230733665290:role/cpe-video-common-stack-lc3-role"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::987655465633:role/cpe-video-common-stack-lc3-role"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::835815505265:role/cpe-video-common-stack-lc3-role"
+        }
+    ]
+}
