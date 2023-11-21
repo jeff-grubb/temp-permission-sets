@@ -104,6 +104,65 @@
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
             "Resource": "arn:aws:iam::835815505265:role/cpe-video-common-stack-lc3-role"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetTables",
+                "glue:GetTable",
+                "glue:GetPartitions",
+                "glue:GetPartition",
+                "glue:GetDatabases",
+                "glue:GetDatabase",
+                "glue:GetCatalogImportStatus",
+                "glue:BatchGetPartition"
+            ],
+            "Resource": [
+                "arn:aws:glue:us-west-2:983338460852:catalog",
+                "arn:aws:glue:us-west-2:983338460852:database/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "athena:ListTableMetadata",
+                "athena:ListDatabases",
+                "athena:GetTableMetadata",
+                "athena:GetDatabase",
+                "athena:GetDataCatalog"
+            ],
+            "Resource": "arn:aws:athena:us-west-2:983338460852:datacatalog/AwsDataCatalog"
+        },
+        {
+            "Action": [
+                "athena:StopQueryExecution",
+                "athena:StartQueryExecution",
+                "athena:ListQueryExecutions",
+                "athena:ListPreparedStatements",
+                "athena:ListNamedQueries",
+                "athena:GetWorkGroup",
+                "athena:GetQueryRuntimeStatistics",
+                "athena:GetQueryResultsStream",
+                "athena:GetQueryResults",
+                "athena:GetQueryExecution",
+                "athena:GetPreparedStatement",
+                "athena:GetNamedQuery",
+                "athena:BatchGetQueryExecution",
+                "athena:BatchGetPreparedStatement",
+                "athena:BatchGetNamedQuery"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:athena:us-west-2:983338460852:workgroup/primary",
+                "arn:aws:athena:us-west-2:983338460852:workgroup/primary/*"
+            ]
+        },
+        {
+            "Action": [
+                "lakeformation:GetDataAccess"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
         }
     ]
 }
